@@ -29,4 +29,3 @@ RUN npm i
 # Run everything after as non-privileged user.
 USER pptruser
 EXPOSE 3000
-ENTRYPOINT ["node","/tmp/index.js"]
