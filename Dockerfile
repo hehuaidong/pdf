@@ -1,15 +1,9 @@
+# FROM node:10-alpine
 FROM node:10.15.2-alpine
 
 
 # Installs latest Chromium (72) package.
-RUN apk update && apk upgrade && \
-    echo @v3.9 http://dl-cdn.alpinelinux.org/alpine/v3.9/community >> /etc/apk/repositories && \
-    echo @v3.9 http://dl-cdn.alpinelinux.org/alpine/v3.9/main >> /etc/apk/repositories && \
-    apk add --no-cache \
-      freetype@v3.9 \
-      chromium@v3.9 \
-      harfbuzz@v3.9 \
-      nss@v3.9
+RUN apk update && apk upgrade &&  echo @v3.9 http://dl-cdn.alpinelinux.org/alpine/v3.9/community >> /etc/apk/repositories && echo @v3.9 http://dl-cdn.alpinelinux.org/alpine/v3.9/main >> /etc/apk/repositories &&  apk add --no-cache freetype@v3.9 chromium@v3.9 harfbuzz@v3.9 nss@v3.9
 
 
 # Tell Puppeteer to skip installing Chrome. We'll be using the installed package.
@@ -30,6 +24,9 @@ RUN addgroup -S pptruser && adduser -S -g pptruser pptruser \
 
 # Add cjk font
 COPY NotoSansCJK-Regular.ttc  /usr/share/fonts/TTF
-
+COPY ./ /tmp
+RUN npm i
 # Run everything after as non-privileged user.
 USER pptruser
+EXPOSE 3000
+ENTRYPOINT ["node","/tmp/index.js"]

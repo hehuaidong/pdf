@@ -1,0 +1,20 @@
+{
+  "name": "thal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "http": "^0.0.1-security",
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^8.0.8",
+    "puppeteer": "^2.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "./node_modules/.bin/nodemon route.js index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
