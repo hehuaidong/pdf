@@ -7,7 +7,7 @@ RUN apk update && apk upgrade &&  echo @v3.9 http://dl-cdn.alpinelinux.org/alpin
 
 
 # Tell Puppeteer to skip installing Chrome. We'll be using the installed package.
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
+#ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
 # Puppeteer v1.9.0 works with Chromium 71.
 # Puppeteer v1.10.0 | v1.11.0 works with Chromium 72.
