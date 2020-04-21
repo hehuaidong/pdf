@@ -25,6 +25,7 @@ RUN addgroup -S pptruser && adduser -S -g pptruser pptruser \
 # Add cjk font
 COPY NotoSansCJK-Regular.ttc  /usr/share/fonts/TTF
 COPY ./ /tmp
+WORKDIR /tmp
 RUN npm i
 # Run everything after as non-privileged user.
 USER pptruser
